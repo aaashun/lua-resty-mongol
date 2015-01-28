@@ -100,6 +100,11 @@ Returns a database object, or nil.
 ####ok, err = db:auth(username, password)
 Returns 1 in case of success, or nil with error message.
 
+####ok, err = db:auth_scram_sha1(username, password)
+Returns 1 in case of success, or nil with error message.
+
+For authentication with MongoDB 2.8(3.0) or later.Authenticate using SCRAM-SHA-1 which is the default authentication mechanism supported by a cluster configured for authentication with MongoDB 2.8(3.0) or later.
+
 ####col = db:get_col(collection_name)
 Returns a collection object for more operations.
 
