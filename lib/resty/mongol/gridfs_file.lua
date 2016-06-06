@@ -157,7 +157,7 @@ function gridfs_file_mt:read(size, offset)
         r = self.chunk_col:find_one({files_id = self.files_id, n = n})
         if not r then return nil, "read chunk failed" end
         if size - rn < self.chunk_size then
-            bytes = bytes .. string.sub(r.data, 1, size - rn)
+            bytes = bytes .. string.sub(r.data, offset + 1, offset + size - rn)
             rn = size
         else
             bytes = bytes .. r.data
